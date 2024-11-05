@@ -41,17 +41,17 @@ def cleaned_0():
 
 # 创建文本输入框
 text_box = tk.Text(root, wrap="word", font=("微软雅黑", 14))
-text_box.grid(row=0, column=0, sticky="nsew")
-text_box.pack(pady=10)
+text_box.grid(row=0, column=1, sticky="nsew")
+
 text_box.bind("<KeyRelease>", update_word_count)  # 监听键盘输入事件
 # 创建字数显示标签
 word_count_label = tk.Label(root, text="字数：0", font=("微软雅黑", 12))
-word_count_label.pack(expand=True, pady=0)
+# 使用grid布局
+word_count_label.grid(row=2, column=1, padx=10)
 # 创建按钮并绑定事件
 button = tk.Button(root, text="去掉标点计算", font=("微软雅黑", 14), command=cleaned_1)
-button.pack(side=tk.LEFT, pady=5)  # 设置按钮位置并留出上下间距
+button.grid(row=2, column=0, padx=10, sticky="w")
 # 创建按钮并绑定事件
 button = tk.Button(root, text="加上标点计算", font=("微软雅黑", 14), command=cleaned_0)
-button.pack(side=tk.RIGHT, pady=5)  # 设置按钮位置并留出上下间距
-# 运行主循环
+button.grid(row=2, column=2, padx=10, sticky="e")
 root.mainloop()
